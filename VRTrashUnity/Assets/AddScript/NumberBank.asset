@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b09067e42ccdb8c44937e57e5e37db88, type: 3}
   m_Name: NumberBank
   m_EditorClassIdentifier: Assembly-CSharp::NumberBank
-  NumberBankList: []
+  NumberBankList:
+  - NumberName: Time
+    MaxTime: 100
