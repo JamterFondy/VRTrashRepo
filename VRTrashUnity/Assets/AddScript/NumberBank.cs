@@ -10,9 +10,19 @@ public class NumberBank : ScriptableObject
 [System.Serializable]
 public class Number
 {
-    public string NumberName = "Time";
-
     [SerializeField]
-    public int MaxTime = 100;
+    public int maxTime;
+    public int MaxTime => maxTime;
+
+    public int pointReset;
+    public int PointReset => pointReset;
+
+    public int petBottlePoint;
+    public int PetBottlePoint => petBottlePoint;
+
+    public int plasticPoint;
+    public int PlasticPoint => plasticPoint;
+
+
 
 }
