@@ -4,6 +4,7 @@ using UnityEngine.Experimental.Rendering;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Unity.XR.CoreUtils;
 
 public class UIManager : MonoBehaviour
 {
@@ -23,7 +24,6 @@ public class UIManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
 
         if (numberBank == null)
         {
@@ -37,21 +37,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void AssignCamera(Camera targetCam)
     {
-        if (scene.name == "FieldScene")
-        {
-            cam = Camera.main; // FieldScene ÇÃÉJÉÅÉâÇ™Ç±ÇÍÇ…Ç»ÇÈ
-            
-            
-            UICanvas.worldCamera = cam;
-
-            UICanvas.transform.SetParent(cam.transform, false);
-            UICanvas.transform.localPosition = new Vector3(0, 0, 2f); // 2mëOï˚
-            UICanvas.transform.localRotation = Quaternion.identity;
-        }
-
-       
+        cam = targetCam;
+        UICanvas.worldCamera = cam;
+        UICanvas.transform.SetParent(cam.transform, false);
+        UICanvas.transform.localPosition = new Vector3(0, 0, 2f);
+        UICanvas.transform.localRotation = Quaternion.identity;
     }
 
 
