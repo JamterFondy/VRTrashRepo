@@ -12,7 +12,8 @@ public class StartButton : MonoBehaviour
 
         button.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("BaseScene");
+            SceneManager.LoadScene("SampleScene", LoadSceneMode.Additive);
         });
     }
 
