@@ -35,7 +35,7 @@ public class SpeheTrashCan : MonoBehaviour
         if (other.gameObject.CompareTag("Sphere"))
         {
             Destroy(other.gameObject);
-            Debug.Log("Cube Destroyed");
+            Debug.Log("Sphere Destroyed");
             PointCounter.prePoint += PetPoint;
         }
     }

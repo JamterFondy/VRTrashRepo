@@ -63,7 +63,7 @@ public class Timer : MonoBehaviour
         Debug.Log("Wait For 3sec...");
         timerText.text = "Finish!";
 
-        yield return new WaitForSeconds(3f);  // 1•b‘Ò‚Â
+        yield return new WaitForSeconds(3f);  // 3•b‘Ò‚Â
 
         SceneManager.LoadScene("GameOverScene", LoadSceneMode.Additive);
     }
