@@ -8976,9 +8976,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GomiManager
   Trashs:
-  - {fileID: 3518844471813053537, guid: 0edc7f5f762fc854283187a9b2415e99, type: 3}
-  - {fileID: 1739511297776323690, guid: 4237627b5d8b30b4d87bcd1498fb066b, type: 3}
-  - {fileID: 4109526251652084737, guid: 4a86724f52c317a40b73d640aa360cf7, type: 3}
+  - {fileID: 5673058126343634672, guid: e8bd2fd38ff199d4297b189eb3651035, type: 3}
+  - {fileID: 4672550260846009725, guid: 39f6ac834a582ec42bf5fb8eb64d7570, type: 3}
+  - {fileID: 1065464710808882247, guid: d27441565a751cb4f90962642ad2918c, type: 3}
+  - {fileID: 6070884708685773637, guid: c581e57f09dced64b8de20482dbc0d8b, type: 3}
+  - {fileID: 1687175064701201633, guid: 942d6af372487f54c8417f2256e9f42e, type: 3}
+  - {fileID: 3152296099264490757, guid: 9eb666397f6e85b4ab01124e915866ee, type: 3}
 --- !u!4 &1153554473
 Transform:
   m_ObjectHideFlags: 0

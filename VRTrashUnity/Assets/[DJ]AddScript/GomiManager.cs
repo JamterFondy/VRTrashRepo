@@ -28,7 +28,7 @@ public class GomiManager : MonoBehaviour
 
         for (int i = 0; i < 20; i++)
         {
-            randomTrashNum = Random.Range(0, 3);
+            randomTrashNum = Random.Range(0, 6);
             float TrashPosX = Random.Range(-10f, 10f);
             float TrashPosZ = Random.Range(-10f, 10f);
             Object.Instantiate(Trashs[randomTrashNum], new Vector3(TrashPosX, 10, TrashPosZ), Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
