@@ -1,13 +1,11 @@
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
 
-public class SpeheTrashCan : MonoBehaviour
+
+public class PetBottleCanScript : MonoBehaviour
 {
-    //Sphereをペットボトルと見立てる
     [SerializeField] private NumberBank numberBank;
     private int PetPoint;
-
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,7 +21,6 @@ public class SpeheTrashCan : MonoBehaviour
         }
     }
 
-
     // Update is called once per frame
     void Update()
     {
@@ -32,11 +29,12 @@ public class SpeheTrashCan : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Sphere"))
+        if (other.gameObject.CompareTag("PetBottle"))
         {
             Destroy(other.gameObject);
-            Debug.Log("Sphere Destroyed");
+            Debug.Log("PetBottle Destroyed");
             PointCounter.prePoint += PetPoint;
+            UIManager.prePoint += PetPoint;
         }
     }
 }

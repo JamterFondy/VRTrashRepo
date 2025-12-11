@@ -1,0 +1,39 @@
+using UnityEngine;
+using UnityEngine.Experimental.Rendering;
+
+public class CanTrashCanScript : MonoBehaviour
+{
+    [SerializeField] private NumberBank numberBank;
+    private int CanPoint;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        if (numberBank == null)
+        {
+            Debug.LogError("NumberBankがアタッチされていません。");
+            return;
+        }
+        else if (numberBank != null && numberBank.NumberBankList.Count > 0)
+        {
+            CanPoint = numberBank.NumberBankList[0].CanPoint;
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.CompareTag("Can"))
+        {
+            Destroy(gameObject);
+            Debug.Log("Can Destroyed");
+            PointCounter.prePoint += CanPoint;
+            UIManager.prePoint += CanPoint;
+        }
+    }
+}

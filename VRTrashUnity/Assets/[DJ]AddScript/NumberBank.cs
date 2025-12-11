@@ -20,6 +20,12 @@ public class Number
     public int petBottlePoint;
     public int PetBottlePoint => petBottlePoint;
 
+    public int binPoint;
+    public int BinPoint => binPoint;
+
+    public int canPoint;
+    public int CanPoint => canPoint;
+
     public int plasticPoint;
     public int PlasticPoint => plasticPoint;
 

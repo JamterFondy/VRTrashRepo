@@ -65,7 +65,7 @@ public class Timer : MonoBehaviour
 
         yield return new WaitForSeconds(3f);  // 3•b‘Ò‚Â
 
-        SceneManager.LoadScene("GameOverScene", LoadSceneMode.Additive);
+
     }
 
 

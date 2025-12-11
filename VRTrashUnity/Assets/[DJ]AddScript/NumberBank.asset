@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: NumberBank
   m_EditorClassIdentifier: Assembly-CSharp::NumberBank
   NumberBankList:
-  - maxTime: 100
+  - maxTime: 120
     pointReset: 0
     petBottlePoint: 200
-    plasticPoint: 100
+    binPoint: 150
+    canPoint: 180
+    plasticPoint: 220

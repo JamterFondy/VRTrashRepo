@@ -21,6 +21,8 @@ public class UIManager : MonoBehaviour
     private const float LOG_INTERVAL = 1f; // 1ïbÇ≤Ç∆Ç…ÉçÉOèoÇ∑
     int cameraTimer;
 
+    public TMP_Text resultPointText;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -81,8 +83,16 @@ public class UIManager : MonoBehaviour
         Debug.Log("Wait For 3sec...");
         timerText.text = "Finish!";
 
-        yield return new WaitForSeconds(3f);  // 1ïbë“Ç¬
+        yield return new WaitForSeconds(3f);  // 3ïbë“Ç¬
 
-        SceneManager.LoadScene("GameOverScene", LoadSceneMode.Additive);
+
+        timerText.text = " ";
+        pointText.text = " ";
+
+        resultPointText.text = $"TotalPoint : {prePoint}";
+
+        yield return new WaitForSeconds(8f); // 8ïbë“Ç¬
+
+        SceneManager.LoadScene("TitleScene");
     }
 }
