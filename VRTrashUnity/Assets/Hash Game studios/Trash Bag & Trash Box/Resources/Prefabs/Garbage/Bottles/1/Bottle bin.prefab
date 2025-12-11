@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 6281821810199771137}
   m_Layer: 0
   m_Name: Bottle bin
-  m_TagString: BottleBin
+  m_TagString: Bin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

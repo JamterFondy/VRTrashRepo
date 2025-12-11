@@ -30,7 +30,7 @@ public class CanTrashCanScript : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Can"))
         {
-            Destroy(gameObject);
+            Destroy(other.gameObject);
             Debug.Log("Can Destroyed");
             PointCounter.prePoint += CanPoint;
             UIManager.prePoint += CanPoint;

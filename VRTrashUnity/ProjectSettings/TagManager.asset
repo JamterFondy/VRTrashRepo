@@ -7,9 +7,9 @@ TagManager:
   - Anchor
   - Cube
   - Sphere
-  - BottleBin
   - PetBottle
   - Can
+  - Bin
   layers:
   - Default
   - TransparentFX
