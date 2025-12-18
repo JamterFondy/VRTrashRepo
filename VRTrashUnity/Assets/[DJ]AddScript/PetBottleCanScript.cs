@@ -37,4 +37,15 @@ public class PetBottleCanScript : MonoBehaviour
             UIManager.prePoint += PetPoint;
         }
     }
+
+    private void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.CompareTag("PetBottle"))
+        {
+            Destroy(other.gameObject);
+            Debug.Log("PetBottle Destroyed");
+            PointCounter.prePoint += PetPoint;
+            UIManager.prePoint += PetPoint;
+        }
+    }
 }

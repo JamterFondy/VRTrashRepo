@@ -39,4 +39,15 @@ public class BinTrashCan : MonoBehaviour
             UIManager.prePoint += BinPoint; 
         }
     }
+
+    private void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.CompareTag("Bin"))
+        {
+            Destroy(other.gameObject);
+            Debug.Log("Bin Destroyed");
+            PointCounter.prePoint += BinPoint;
+            UIManager.prePoint += BinPoint;
+        }
+    }
 }

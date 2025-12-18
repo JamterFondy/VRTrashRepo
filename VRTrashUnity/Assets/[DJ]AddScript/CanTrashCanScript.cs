@@ -36,4 +36,15 @@ public class CanTrashCanScript : MonoBehaviour
             UIManager.prePoint += CanPoint;
         }
     }
+
+    private void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.CompareTag("Can"))
+        {
+            Destroy(other.gameObject);
+            Debug.Log("Can Destroyed");
+            PointCounter.prePoint += CanPoint;
+            UIManager.prePoint += CanPoint;
+        }
+    }
 }
