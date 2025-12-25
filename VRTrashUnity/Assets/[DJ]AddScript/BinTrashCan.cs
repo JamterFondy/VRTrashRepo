@@ -40,7 +40,7 @@ public class BinTrashCan : MonoBehaviour
             UIManager.prePoint += BinPoint; 
         }
 
-        if (audioSource.clip == null)
+        if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
 

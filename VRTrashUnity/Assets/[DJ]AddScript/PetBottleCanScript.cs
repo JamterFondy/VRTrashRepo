@@ -40,7 +40,7 @@ public class PetBottleCanScript : MonoBehaviour
             UIManager.prePoint += PetPoint;
         }
 
-        if (audioSource.clip == null)
+        if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
 

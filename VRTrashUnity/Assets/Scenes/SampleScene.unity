@@ -12142,7 +12142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CanTrashCanScript
   numberBank: {fileID: 11400000, guid: e3505cdf8a2202544817d173dd8c2c4a, type: 2}
-  seClip: {fileID: 0}
+  seClip: {fileID: 8300000, guid: eaa90a7e747be7f498920543b6dda783, type: 3}
 --- !u!82 &1441688025
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14294,7 +14294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PetBottleCanScript
   numberBank: {fileID: 11400000, guid: e3505cdf8a2202544817d173dd8c2c4a, type: 2}
-  seClip: {fileID: 0}
+  seClip: {fileID: 8300000, guid: eaa90a7e747be7f498920543b6dda783, type: 3}
 --- !u!82 &1652982365
 AudioSource:
   m_ObjectHideFlags: 0

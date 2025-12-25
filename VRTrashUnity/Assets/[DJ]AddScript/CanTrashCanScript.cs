@@ -39,7 +39,7 @@ public class CanTrashCanScript : MonoBehaviour
             UIManager.prePoint += CanPoint;
         }
 
-        if (audioSource.clip == null)
+        if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
 
