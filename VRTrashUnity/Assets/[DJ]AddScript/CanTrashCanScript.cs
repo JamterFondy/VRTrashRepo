@@ -6,6 +6,9 @@ public class CanTrashCanScript : MonoBehaviour
     [SerializeField] private NumberBank numberBank;
     private int CanPoint;
 
+    public AudioClip seClip;   // InspectorÇ≈ê›íË
+    private AudioSource audioSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,6 +38,21 @@ public class CanTrashCanScript : MonoBehaviour
             PointCounter.prePoint += CanPoint;
             UIManager.prePoint += CanPoint;
         }
+
+        if (audioSource.clip == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+                audioSource.playOnAwake = false; // îOÇÃÇΩÇﬂ
+            }
+
+            audioSource.clip = seClip;
+        }
+
+        audioSource.Play();
     }
 
     private void OnCollisionStay(Collision other)
@@ -46,5 +64,20 @@ public class CanTrashCanScript : MonoBehaviour
             PointCounter.prePoint += CanPoint;
             UIManager.prePoint += CanPoint;
         }
+
+        if (audioSource.clip == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+                audioSource.playOnAwake = false; // îOÇÃÇΩÇﬂ
+            }
+
+            audioSource.clip = seClip;
+        }
+
+        audioSource.Play();
     }
 }
