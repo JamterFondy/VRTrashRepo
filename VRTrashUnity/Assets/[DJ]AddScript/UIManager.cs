@@ -32,6 +32,7 @@ public class UIManager : MonoBehaviour
     {
         toggle = false;
 
+
         if (numberBank == null)
         {
             Debug.LogError("NumberBank���A�^�b�`����Ă��܂���B");
@@ -142,4 +143,9 @@ public class UIManager : MonoBehaviour
 public class ScoreList
 {
     public List<int> scores = new List<int>();
+
+    void Start()
+    {
+        
+    }
 }
