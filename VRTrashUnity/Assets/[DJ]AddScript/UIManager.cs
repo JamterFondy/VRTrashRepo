@@ -23,9 +23,12 @@ public class UIManager : MonoBehaviour
 
     public TMP_Text resultPointText;
 
+    public bool stillGame;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        stillGame = true;
 
         if (numberBank == null)
         {
@@ -52,8 +55,11 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pointText.text = $"Point : {prePoint}";
+        if (stillGame)
+        {
+            pointText.text = $"Point : {prePoint}";
 
+        }
         if (time > 0)
         {
             time -= Time.deltaTime; // ƒeƒXƒgŒ¸Z
@@ -72,6 +78,7 @@ public class UIManager : MonoBehaviour
         if (time <= 0)
         {
             time = 0;
+            stillGame = false;
             StartCoroutine(MoveToResultScene());
 
         }
