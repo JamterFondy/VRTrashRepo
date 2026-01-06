@@ -90,6 +90,7 @@ git clone https://github.com/JamterFondy/VRTrashRepo.git
 
 - [JamterFondy](https://github.com/JamterFondy)
 - [shuyaad](https://github.com/shuyaad)
+- [Yuji-ctrl](https://github.com/Yuji-ctrl)
 
 ## 📄 ライセンス
 
