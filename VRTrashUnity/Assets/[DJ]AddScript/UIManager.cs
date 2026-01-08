@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
     private float time;
     private float logTimer = 0f; // ���O�p�̃^�C�}�[
     private const float LOG_INTERVAL = 1f; // 1�b���ƂɃ��O�o��
-    int cameraTimer;
+    public static int cameraTimer;
 
     public TMP_Text resultPointText;
 
