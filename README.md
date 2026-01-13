@@ -92,9 +92,6 @@ git clone https://github.com/JamterFondy/VRTrashRepo.git
 - [shuyaad](https://github.com/shuyaad)
 - [Yuji-ctrl](https://github.com/Yuji-ctrl)
 
-## 📄 ライセンス
-
-このプロジェクトはプライベートリポジトリです。
 
 ## 🔧 開発メモ
 
