@@ -94,6 +94,7 @@ git clone https://github.com/JamterFondy/VRTrashRepo.git
 - ✅ 効果音の実装
 - ✅ ゴミのランダム生成
 - ✅ UIの配置調整
+- ✅ ランキング機能の実装
 
 ## 👥 コントリビューター
 
