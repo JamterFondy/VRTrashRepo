@@ -21,8 +21,8 @@ public class StartPortal : MonoBehaviour
     {
         if (player.CompareTag("Player"))
         {
-            SceneManager.LoadScene("BaseScene");
-            SceneManager.LoadScene("SampleScene",LoadSceneMode.Additive);
+            UIManager.GameStart = true;
+            gameObject.SetActive(false);
         }
     }
 }

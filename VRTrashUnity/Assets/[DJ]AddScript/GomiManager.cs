@@ -12,14 +12,17 @@ public class GomiManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        StartCoroutine(TrashSpawn());
+       
 
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+       if(UIManager.GameStart)
+        {
+            StartCoroutine(TrashSpawn());
+        }
 
     }
 

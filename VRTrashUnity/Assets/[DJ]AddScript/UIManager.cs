@@ -18,18 +18,32 @@ public class UIManager : MonoBehaviour
     public static int prePoint;
 
     public TMP_Text timerText;
-    private float time;
+    private float time; //120固定
+
+    private float timego; //プレイ時間計測用
+    private float timekeep;//スタートボタンが押されるまでの時間計測用
+
     private float logTimer = 0f; // ���O�p�̃^�C�}�[
     private const float LOG_INTERVAL = 1f; // 1�b���ƂɃ��O�o��
     public static int cameraTimer;
 
     public TMP_Text resultPointText;
 
+    public static bool GameStart;
+
     public bool toggle;
+
+
+    void Awake()
+    {
+        SceneManager.LoadScene("SampleScene", LoadSceneMode.Additive);
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        GameStart = false;
         toggle = false;
 
 
@@ -58,14 +72,23 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pointText.text = $"Point : {prePoint}";
 
-        if (time > 0)
+        if(!GameStart && time > 0)
         {
-            time -= Time.deltaTime; // �e�X�g���Z
+            timego += Time.deltaTime;
+            timekeep += Time.deltaTime;
+        }
+        else if (time > 0)
+        {
+            timego += Time.deltaTime;
+
+            time -= (timego - timekeep); // �e�X�g���Z
+
             cameraTimer = (int)time;
             timerText.text = cameraTimer.ToString();
         }
+
+        if (UIManager.GameStart) pointText.text = $"Point : {prePoint}";
 
         logTimer += Time.deltaTime;
         if (logTimer >= LOG_INTERVAL)
