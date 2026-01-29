@@ -3,7 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class StartPortal : MonoBehaviour
 {
-    public GameObject player;
+    [SerializeField] GomiManager gomiManager;
+    public GameObject startGomi;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,10 +20,13 @@ public class StartPortal : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (player.CompareTag("Player"))
-        {
-            UIManager.GameStart = true;
-            gameObject.SetActive(false);
-        }
+      if (collision.gameObject.CompareTag("StartGomi"))
+      {
+          UIManager.GameStart = true;
+         
+          gomiManager.StartTrashSpawn();
+
+            startGomi.SetActive(false);
+      }
     }
 }

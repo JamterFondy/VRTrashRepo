@@ -19,11 +19,12 @@ public class GomiManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(UIManager.GameStart)
-        {
-            StartCoroutine(TrashSpawn());
-        }
 
+    }
+
+    public void StartTrashSpawn()
+    {
+        StartCoroutine(TrashSpawn());
     }
 
 
