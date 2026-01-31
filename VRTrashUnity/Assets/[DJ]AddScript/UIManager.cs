@@ -36,12 +36,6 @@ public class UIManager : MonoBehaviour
 
     public bool toggle;
 
-
-    void Awake()
-    {
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Additive);
-    }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -181,6 +175,7 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(8f); // 8秒待機
 
         SceneManager.LoadScene("TitleScene");
+        SceneManager.UnloadSceneAsync("SampleScene");
     }
 }
 
