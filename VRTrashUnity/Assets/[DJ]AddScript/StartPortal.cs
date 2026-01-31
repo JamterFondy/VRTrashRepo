@@ -6,6 +6,9 @@ public class StartPortal : MonoBehaviour
     [SerializeField] GomiManager gomiManager;
     public GameObject startGomi;
 
+    public AudioClip seClip;   // InspectorÇ≈ê›íË
+    private AudioSource audioSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,13 +21,31 @@ public class StartPortal : MonoBehaviour
         
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision other)
     {
-      if (collision.gameObject.CompareTag("StartGomi"))
+      if (other.gameObject.CompareTag("StartGomi"))
       {
           UIManager.GameStart = true;
-         
-          gomiManager.StartTrashSpawn();
+
+            Destroy(other.gameObject);
+
+            if (audioSource == null)
+            {
+                audioSource = GetComponent<AudioSource>();
+
+                if (audioSource == null)
+                {
+                    audioSource = gameObject.AddComponent<AudioSource>();
+                    audioSource.playOnAwake = false; // îOÇÃÇΩÇﬂ
+                }
+
+                audioSource.clip = seClip;
+            }
+
+            audioSource.Play();
+
+
+            gomiManager.StartTrashSpawn();
 
             startGomi.SetActive(false);
       }

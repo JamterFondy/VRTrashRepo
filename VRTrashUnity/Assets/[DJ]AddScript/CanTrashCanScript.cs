@@ -37,22 +37,24 @@ public class CanTrashCanScript : MonoBehaviour
             Debug.Log("Can Destroyed");
             PointCounter.prePoint += CanPoint;
             UIManager.prePoint += CanPoint;
-        }
 
-        if (audioSource == null)
-        {
-            audioSource = GetComponent<AudioSource>();
 
             if (audioSource == null)
             {
-                audioSource = gameObject.AddComponent<AudioSource>();
-                audioSource.playOnAwake = false; // ”O‚Ì‚½‚ß
+                audioSource = GetComponent<AudioSource>();
+
+                if (audioSource == null)
+                {
+                    audioSource = gameObject.AddComponent<AudioSource>();
+                    audioSource.playOnAwake = false; // ”O‚Ì‚½‚ß
+                }
+
+                audioSource.clip = seClip;
             }
 
-            audioSource.clip = seClip;
+            audioSource.Play();
         }
 
-        audioSource.Play();
     }
 
     private void OnCollisionStay(Collision other)
@@ -63,21 +65,23 @@ public class CanTrashCanScript : MonoBehaviour
             Debug.Log("Can Destroyed");
             PointCounter.prePoint += CanPoint;
             UIManager.prePoint += CanPoint;
-        }
 
-        if (audioSource.clip == null)
-        {
-            audioSource = GetComponent<AudioSource>();
 
-            if (audioSource == null)
+            if (audioSource.clip == null)
             {
-                audioSource = gameObject.AddComponent<AudioSource>();
-                audioSource.playOnAwake = false; // ”O‚Ì‚½‚ß
+                audioSource = GetComponent<AudioSource>();
+
+                if (audioSource == null)
+                {
+                    audioSource = gameObject.AddComponent<AudioSource>();
+                    audioSource.playOnAwake = false; // ”O‚Ì‚½‚ß
+                }
+
+                audioSource.clip = seClip;
             }
 
-            audioSource.clip = seClip;
+            audioSource.Play();
         }
 
-        audioSource.Play();
     }
 }

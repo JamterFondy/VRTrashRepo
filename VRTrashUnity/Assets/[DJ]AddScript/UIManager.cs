@@ -18,13 +18,16 @@ public class UIManager : MonoBehaviour
     public static int prePoint;
 
     public TMP_Text timerText;
-    private float time; //120固定
+    private float time; // 表示用の残り時間（秒）
 
-    private float timego; //プレイ時間計測用
-    private float timekeep;//スタートボタンが押されるまでの時間計測用
+    private float baseTime; // 固有値（MaxTime）を保持
 
-    private float logTimer = 0f; // ���O�p�̃^�C�}�[
-    private const float LOG_INTERVAL = 1f; // 1�b���ƂɃ��O�o��
+    private int timegoSeconds; // プレイ時間計測（秒）
+    private int timekeepSeconds; // スタート前に蓄積された秒数（秒）
+    private float secondAccumulator = 0f; // 1秒ごとのカウント用
+
+    private float logTimer = 0f; // ログ出力タイマー
+    private const float LOG_INTERVAL = 1f; // 1秒ごとにログ
     public static int cameraTimer;
 
     public TMP_Text resultPointText;
@@ -49,14 +52,19 @@ public class UIManager : MonoBehaviour
 
         if (numberBank == null)
         {
-            Debug.LogError("NumberBank���A�^�b�`����Ă��܂���B");
+            Debug.LogError("NumberBankがアサインされていません");
             return;
         }
         else if (numberBank != null && numberBank.NumberBankList.Count > 0)
         {
-            time = numberBank.NumberBankList[0].MaxTime;
+            baseTime = numberBank.NumberBankList[0].MaxTime; // 固有値を保持
+            time = baseTime; // 初期は残り時間 = 固有値
             prePoint = numberBank.NumberBankList[0].PointReset;
         }
+
+        timegoSeconds = 0;
+        timekeepSeconds = 0;
+        secondAccumulator = 0f;
     }
 
     public void AssignCamera(Camera targetCam)
@@ -72,38 +80,53 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if(!GameStart && time > 0)
+        // 秒単位でカウントするための蓄積
+        secondAccumulator += Time.deltaTime;
+        if (secondAccumulator >= 1f)
         {
-            timego += Time.deltaTime;
-            timekeep += Time.deltaTime;
+            // 経過した「整数秒」を取り出す（フレーム落ちで1秒以上経過した場合も対応）
+            int elapsedWholeSeconds = Mathf.FloorToInt(secondAccumulator);
+            secondAccumulator -= elapsedWholeSeconds;
+
+            if (!GameStart && baseTime > 0f)
+            {
+                // スタート前：timego と timekeep を毎秒1ずつ増やす
+                timegoSeconds += elapsedWholeSeconds;
+                timekeepSeconds += elapsedWholeSeconds;
+            }
+            else if (baseTime > 0f)
+            {
+                // スタート後：timego のみ増やし、timekeep は停止（値は固定）
+                timegoSeconds += elapsedWholeSeconds;
+            }
         }
-        else if (time > 0)
+
+        // 残り時間を baseTime - (timego - timekeep) で計算
+        time = baseTime - (timegoSeconds - timekeepSeconds);
+        if (time < 0f) time = 0f;
+
+        // UI 表示更新（常に表示）
+        if(GameStart)
         {
-            timego += Time.deltaTime;
-
-            time -= (timego - timekeep); // �e�X�g���Z
-
             cameraTimer = (int)time;
             timerText.text = cameraTimer.ToString();
         }
+        
 
         if (UIManager.GameStart) pointText.text = $"Point : {prePoint}";
 
         logTimer += Time.deltaTime;
         if (logTimer >= LOG_INTERVAL)
         {
-            Debug.Log($"�c��{(int)time}�b");
+            Debug.Log($"残り{(int)time}秒");
             logTimer = 0f;
         }
 
-
-        if (time <= 0 && toggle == false)
+        if (time <= 0f && toggle == false)
         {
-            time = 0;
+            time = 0f;
             StartCoroutine(MoveToResultScene());
             toggle = true;
-
         }
 
     }
@@ -143,7 +166,7 @@ public class UIManager : MonoBehaviour
         Debug.Log("Wait For 3sec...");
         timerText.text = "Finish!";
 
-        yield return new WaitForSeconds(3f);  // 3�b�҂�
+        yield return new WaitForSeconds(3f);  // 3秒待機
 
 
         timerText.text = " ";
@@ -155,7 +178,7 @@ public class UIManager : MonoBehaviour
         // ランキングを表示
         DisplayRanking();
 
-        yield return new WaitForSeconds(8f); // 8�b�҂�
+        yield return new WaitForSeconds(8f); // 8秒待機
 
         SceneManager.LoadScene("TitleScene");
     }
@@ -169,6 +192,6 @@ public class ScoreList
 
     void Start()
     {
-        
+
     }
 }

@@ -37,23 +37,24 @@ public class BinTrashCan : MonoBehaviour
             Destroy(other.gameObject);
             Debug.Log("Bin Destroyed");
             PointCounter.prePoint += BinPoint;
-            UIManager.prePoint += BinPoint; 
-        }
+            UIManager.prePoint += BinPoint;
 
-        if (audioSource == null)
-        {
-            audioSource = GetComponent<AudioSource>();
 
             if (audioSource == null)
             {
-                audioSource = gameObject.AddComponent<AudioSource>();
-                audioSource.playOnAwake = false; // ”O‚Ì‚½‚ß
+                audioSource = GetComponent<AudioSource>();
+
+                if (audioSource == null)
+                {
+                    audioSource = gameObject.AddComponent<AudioSource>();
+                    audioSource.playOnAwake = false; // ”O‚Ì‚½‚ß
+                }
+
+                audioSource.clip = seClip;
             }
 
-            audioSource.clip = seClip;
+            audioSource.Play();
         }
-
-        audioSource.Play();
     }
 
     private void OnCollisionStay(Collision other)
@@ -64,22 +65,24 @@ public class BinTrashCan : MonoBehaviour
             Debug.Log("Bin Destroyed");
             PointCounter.prePoint += BinPoint;
             UIManager.prePoint += BinPoint;
-        }
 
-        if (audioSource.clip == null)
-        {
-            audioSource = GetComponent<AudioSource>();
-
-            if (audioSource == null)
+            if (audioSource.clip == null)
             {
-                audioSource = gameObject.AddComponent<AudioSource>();
-                audioSource.playOnAwake = false; // ”O‚Ì‚½‚ß
+                audioSource = GetComponent<AudioSource>();
+
+                if (audioSource == null)
+                {
+                    audioSource = gameObject.AddComponent<AudioSource>();
+                    audioSource.playOnAwake = false; // ”O‚Ì‚½‚ß
+                }
+
+                audioSource.clip = seClip;
             }
 
-            audioSource.clip = seClip;
+            audioSource.Play();
+
         }
 
-        audioSource.Play();
     }
 
     
