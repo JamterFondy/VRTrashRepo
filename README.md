@@ -22,7 +22,7 @@ VRTrashRepoは、Meta Quest（Oculus）向けに開発されたVRゴミ拾いゲ
 - **Meta XR SDK**: Oculus/Meta Quest対応
 - **XR Interaction Toolkit**: VRインタラクション実装
 - **TextMesh Pro**: UI表示
-- **C++/C**: ネイティブコード（87.1% C++、12.9% C）
+- **C++/C**: ネイティブコード（87.1% C++、12.9% C：ランタイム等、ゲームロジックはC#）
 
 ## 📂 プロジェクト構造
 
